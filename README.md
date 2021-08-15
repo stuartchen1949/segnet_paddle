@@ -53,7 +53,7 @@ ps：由于使用paddleseg套件开发，void类也进行了计算，所以我�
 ```
 cd PaddleSeg
 python train.py \
-       --config bisenet_optic_disc_512x512_1k.yml \
+       --config config.yml \
        --do_eval \
        --use_vdl \
        --save_interval 500 \
@@ -69,7 +69,7 @@ python train.py \
 ### 快速预测：
 ```
 python data/PaddleSeg/predict.py \
-       --config bisenet_optic_disc_512x512_1k.yml \
+       --config config.yml \
        --model_path output_bs_8——pre/best_model/model.pdparams \
        --image_path data/PaddleSeg/camvid/test \
        --save_dir output/result
@@ -117,7 +117,7 @@ optimizer: #设定优化器的类型
   weight_decay: 4.0e-5 #权值衰减，使用的目的是防止过拟合
 
 learning_rate: #设定学习率
-  value: 0.01  #初始学习率
+  value: 0.1  #初始学习率
   decay:
     type: poly  #采用poly作为学习率衰减方式。
     power: 0.9  #衰减率
@@ -126,14 +126,10 @@ learning_rate: #设定学习率
 loss: #设定损失函数的类型
   types:
     - type: CrossEntropyLoss #损失函数类型
-  coef: [1, 1]
-  #PSPNet 有1个辅助loss，加上主loss共2个，1表示权重 all_loss = coef_1 * loss_1 + .... + coef_n * loss_n
+  coef: [1]
 
 model: #模型说明
-  type: PSPNet  #设定模型类别
-  backbone:
-    type: ResNet50_vd
-    pretrained: https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
+  type: SegNet  #设定模型类别
   num_classes: 12
 ```
 
