@@ -1,5 +1,6 @@
+简体中文 | [English](README.md)
 # SegNet
-SegNet
+SegNet  
 [SegNet](#segnet)
    * [一、简介](#一简介)
    * [二、复现精度](#二复现精度)
