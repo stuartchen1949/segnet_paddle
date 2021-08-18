@@ -17,8 +17,9 @@ SegNet，用来实现语义分割的深度学习神经网络模型
 
 ## 二、复现精度
 在 camvid 11类数据集上 miou = 0.601  
-ps：由于使用paddleseg套件开发，void类也进行了计算，所以我们对12类的miou进行等效：  
-等效miou = （原miou *12 - iou（ignore_label））/ 11，我们的12类miou等效后达到11类miou=0.601的标准
+ps：由于使用paddleseg套件开发，void类也进行了计算，所以我们对12类（包含了 void 类，训练时为了获得更高精度，label 记为12类）的miou进行等效：  
+等效miou = （原miou *12 - iou（ignore_label））/ 11，我们的12类miou等效后达到11类miou=0.601的标准  
+当然，也可以在训练完成后将类别数改为11类进行预测计算 miou。
 
 ## 三、数据集
 本次数据集使用的是 camvid，可以在 AI Studio 上下载
