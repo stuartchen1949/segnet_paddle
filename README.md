@@ -14,7 +14,7 @@ SegNet
 
 SegNet，用来实现语义分割的深度学习神经网络模型  
 论文：<https://github.com/yassouali/pytorch-segmentation>  
-已在 AI Studio 上进行开源，可以在线运行：<https://aistudio.baidu.com/aistudio/projectdetail/2276343>
+已在 AI Studio 上进行开源，可以在线运行：<https://aistudio.baidu.com/aistudio/projectdetail/2293857>
 
 ## 二、复现精度
 在 camvid 11类数据集上 miou = 0.601  
